@@ -1,0 +1,29 @@
+name: bias
+channels:
+  - pytorch
+  - nvidia
+  - open3d-admin
+dependencies:
+  - python
+  - pytorch=*=*cuda12.1*
+  - pytorch-cuda=12.1
+  - torchvision
+  - ipywidgets
+  - matplotlib
+  - jupyterlab
+  - opencv
+  - pillow
+  - requests
+  - pandas
+  - pyyaml
+  - tqdm
+  - tensorboardx
+  - tensorboard
+  - plotly
+  - scikit-image
+  - scikit-learn
+  - grad-cam
+  - ipympl
+  - pip
+  - pip: torchray
+prefix: ~/.conda/envs/bias
