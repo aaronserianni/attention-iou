@@ -34,7 +34,7 @@ python run_evaluations.py --waterbirds --data_dir {WATERBIRDS_DATASET_DIRECTORY}
 ### CelebA
 To train models, run:
 ```bash
-python run_trainer.py --celeb --data_dir {CELEB_DATASET_DIRECTORY} --save_model models/ --train_multiple 20
+python run_trainer.py --celeb --data_dir {CELEB_DATASET_DIRECTORY} --save_model models/ --train_multiple 20 --batch_size 32
 ```
 
 To get raw evaluations and and run average heatmaps on all attributes, run:
@@ -54,7 +54,7 @@ python run_bias.py --celeb --data_dir {CELEB_DATASET_DIRECTORY} --load_model mod
 
 To do one-sided training for when feature is or is not present (target attribute was Eyeglasses in our experiments):
 ```bash
-python run_trainer.py --celeb --data_dir {CELEB_DATASET_DIRECTORY} --save_model models/ --train_multiple 10 --one_sided_target {TARGET_ATTRIBUTE} --one_sided_train {positive/negative}
+python run_trainer.py --celeb --data_dir {CELEB_DATASET_DIRECTORY} --save_model models/ --train_multiple 10 --batch_size 32 --one_sided_target {TARGET_ATTRIBUTE} --one_sided_train {positive/negative}
 ```
 
 ### CelebA subgroups and one-sided training
@@ -96,7 +96,7 @@ python run_bias.py --waterbirds --data_dir {WATERBIRDS_DATASET_DIRECTORY} --mode
 
 To train CelebA models with EfficientNet, run:
 ```bash
-python run_trainer.py --celeb --data_dir {CELEB_DATASET_DIRECTORY} --model efficientnet --save_model models/ --train_multiple 10
+python run_trainer.py --celeb --data_dir {CELEB_DATASET_DIRECTORY} --model efficientnet --save_model models/ --train_multiple 10 --batch_size 32
 ```
 
 To get raw CelebA evaluations on all attributes with EfficientNet, run:

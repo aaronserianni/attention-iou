@@ -39,7 +39,7 @@ high = np.round(min(args.mcc+.2, .99), 2)
 
 for i in np.round(np.arange(low, high+.001, .01), 2):
     # print([os.path.abspath('run_subgroups.slurm'), str(args.target_label), str(i), str(low), str(high)])
-    print(f"python run_trainer.py --celeb --data_dir {str(args.data_dir)} --save_model models/ --subgroup_targets {str(args.target_label)} Male --subgroup_train_mcc {str(i)} --subgroup_train_mcc_range {str(low)} {str(high)} --train_multiple 10")
+    print(f"python run_trainer.py --celeb --data_dir {str(args.data_dir)} --save_model models/ --subgroup_targets {str(args.target_label)} Male --subgroup_train_mcc {str(i)} --subgroup_train_mcc_range {str(low)} {str(high)} --train_multiple 10 --batch_size 32")
     print(f"python run_bias.py --celeb --data_dir {str(args.data_dir)} --results_dir results/subgroups/ --load_model models/ --score heatmap --heatmap_score_targets {str(args.target_label)} Male --subgroup_targets {str(args.target_label)} Male --subgroup_train_mcc {str(i)} --subgroup_train_mcc_range {str(low)} {str(high)} --score_sample --no-resize_attentions")
     print(f"python run_evaluations.py --celeb --data_dir {str(args.data_dir)} --results_dir results/subgroups/ --load_model models/ --subgroup_targets {str(args.target_label)} Male --subgroup_train_mcc {str(i)} --subgroup_train_mcc_range {str(low)} {str(high)} --score_sample --evaluate_model")
     # command = subprocess.Popen([os.path.abspath('run_subgroups.slurm'), str(args.target_label), str(i), str(low), str(high)])
